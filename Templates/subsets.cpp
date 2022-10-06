@@ -1,0 +1,14 @@
+/* Recursive (Backtracking) */
+
+vector<vector<int>> sol;
+// idx = 0
+void subsets(vector<int> &nums, int size, vector<int> &subs, int idx) {
+  if (idx == size) {
+    sol.push_back(subs);
+  } else {
+    subs.push_back(nums[idx]);
+    subsets(nums, size, subs, idx + 1);
+    subs.pop_back();
+    subsets(nums, size, subs, idx + 1);
+  }
+}
