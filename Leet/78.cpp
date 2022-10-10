@@ -27,3 +27,20 @@ public:
     return sol;
   }
 };
+
+// Alternative
+class Solution {
+public:
+  vector<vector<int>> subsets(vector<int> &nums) {
+    int n = nums.size(), p = 1 << n, i = 0;
+    vector<vector<int>> ans(p);
+    while (i < p) {
+      for (int j = 0; j < n; j++) {
+        if (i & (1 << j))
+          ans[i].push_back(nums[j]);
+      }
+      i++;
+    }
+    return ans;
+  }
+};
